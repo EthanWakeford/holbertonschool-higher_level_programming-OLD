@@ -2,5 +2,5 @@
 for i in range(8):
     for j in range(10):
         if j > i:
-            print(i, j, sep="", end=", ")
-print("89")
+            print("{}".format(i, j), sep="", end=", ")
+print("{}".format(89))
