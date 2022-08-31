@@ -8,7 +8,7 @@ def main():
         exit()
     count = 1
     print("{} argument".format(len(argv)-1),  end="")
-    print("s" if len(argv) > 2 else "")
+    print("s:" if len(argv) > 2 else ":")
     for i in argv[1:]:
         print("{}: {}".format(count, argv[count]))
         count += 1
