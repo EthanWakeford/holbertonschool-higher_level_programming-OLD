@@ -4,7 +4,7 @@ from sys import argv
 
 def main():
     if len(argv) == 1:
-        print("0 arguments")
+        print("0 arguments.")
         exit()
     count = 1
     print("{} argument".format(len(argv)-1),  end="")
