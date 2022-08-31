@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from 2-variable_load import a
+from variable_load_2 import a
 
 
 def main():
