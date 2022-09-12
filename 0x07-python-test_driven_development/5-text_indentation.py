@@ -10,7 +10,7 @@ def text_indentation(text):
 
     newline = False
     for i in text:
-        if newline != True or i != ' ':
+        if not newline or i != ' ':
             print(i, end='')
         if i in ['.', '?', ':']:
             print("\n\n", end='')
