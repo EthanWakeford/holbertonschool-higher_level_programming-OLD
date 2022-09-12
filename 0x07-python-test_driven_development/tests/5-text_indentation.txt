@@ -6,9 +6,9 @@ this is a test for 5-text_indentation
 >>> text_indentation(text)
 hello.
 <BLANKLINE>
- my name is:
+my name is:
 <BLANKLINE>
- gregory right?
+gregory right?
 <BLANKLINE>
 
 >>> text = 11
