@@ -1,0 +1,17 @@
+this is a test for 5-text_indentation
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text = "hello. my name is: gregory right?"
+>>> text_indentation(text)
+hello.
+<BLANKLINE>
+ my name is:
+<BLANKLINE>
+ gregory right?
+<BLANKLINE>
+
+>>> text = 11
+>>> text_indentation(text)
+Traceback (most recent call last):
+TypeError: text must be a string
