@@ -8,7 +8,12 @@ def text_indentation(text):
     if type(text) != str:
         raise TypeError('text must be a string')
 
+    newline = False
     for i in text:
-        print(i, end='')
+        if newline != True or i != ' ':
+            print(i, end='')
         if i in ['.', '?', ':']:
             print("\n\n", end='')
+            newline = True
+        else:
+            newline = False
