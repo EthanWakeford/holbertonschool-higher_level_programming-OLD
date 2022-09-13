@@ -49,4 +49,4 @@ class Rectangle():
         if self.__height == 0 or self.__width == 0:
             return ("")
         str = ("{}\n".format('#' * self.__width) * self.__height)
-        return (str)
+        return (str[:-1])
