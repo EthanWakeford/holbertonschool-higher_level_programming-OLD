@@ -13,3 +13,25 @@ tests for 1-my_list
 >>> l = MyList([])
 >>> l.print_sorted()
 []
+
+>>> l = MyList()
+>>> l.print_sorted()
+[]
+
+>>> l = MyList([2])
+>>> l.print_sorted()
+[2]
+
+>>> l = MyList()
+>>> l.extend([1, 2, 3])
+>>> l.print_sorted()
+[1, 2, 3]
+
+>>> l = MyList()
+>>> print(l.__doc__)
+has personal methods for list
+
+>>> l = MyList([1, 2, 'hello'])
+>>> l.print_sorted()
+Traceback (most recent call last):
+TypeError: '<' not supported between instances of 'str' and 'int'
