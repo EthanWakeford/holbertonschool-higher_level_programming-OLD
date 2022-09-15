@@ -1,0 +1,20 @@
+test for 7-base_geometry
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> b = BaseGeometry()
+>>> b.integer_validator('int', 89)
+
+>>> b = BaseGeometry()
+>>> b.integer_validator('string', 'hello')
+Traceback (most recent call last):
+TypeError: string must be an integer
+
+>>> b = BaseGeometry()
+>>> b.integer_validator('less than zero', -5)
+Traceback (most recent call last):
+ValueError: less than zero must be greater than 0
+
+>>> b = BaseGeometry()
+>>> print(b.__doc__)
+geometry class
