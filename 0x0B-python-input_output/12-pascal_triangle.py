@@ -2,7 +2,7 @@
 """pascals triangle"""
 
 
-def pascal_triangle(n): 
+def pascal_triangle(n):
     """creates a pascals triangle"""
 
     if n <= 0:
