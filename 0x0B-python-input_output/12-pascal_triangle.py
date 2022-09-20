@@ -8,7 +8,7 @@ def pascal_triangle(n):
     if n <= 0:
         return ([])
     big_list = [[1]]
-    l1 = [1]
+    l1 = []
     for i in range(1, n):
         l2 = [1]
         for j in range(len(l1)):
