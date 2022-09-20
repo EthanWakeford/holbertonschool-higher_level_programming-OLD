@@ -15,8 +15,6 @@ def pascal_triangle(n):
             if j < len(l1) - 1:
                 l2.append(l1[j] + l1[j + 1])
         l2.append(1)
-        print(l2)
         big_list.append(l2)
         l1 = l2
-    print("_" * 10)
     return (big_list)
