@@ -11,8 +11,7 @@ def pascal_triangle(n):
     l1 = []
     for i in range(1, n):
         l2 = [1]
-        for j in range(len(l1)):
-            if j < len(l1) - 1:
+        for j in range(len(l1) - 1):
                 l2.append(l1[j] + l1[j + 1])
         l2.append(1)
         big_list.append(l2)
