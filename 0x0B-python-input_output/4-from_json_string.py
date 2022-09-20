@@ -2,7 +2,7 @@
 """returns a python object from json string"""
 
 
-def from_json_string(my_str):
+def from_json_string(my_obj):
     """returns a python object from json string"""
 
-    return (json.loads(my_str))
+    return (json.loads(my_obj))
