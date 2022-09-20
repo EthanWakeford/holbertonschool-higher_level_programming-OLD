@@ -16,7 +16,7 @@ class Student:
         if attrs is None:
             return (vars(self))
         attributes = {}
-        for key, value in vars(self).items:
+        for key, value in vars(self).items():
             if key in attrs:
                 attributes[key] = value
         return (attributes)
