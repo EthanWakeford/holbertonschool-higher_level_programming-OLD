@@ -32,3 +32,8 @@ class Square(Rectangle):
                 setattr(self, key, value)
         for arg, attr in zip(args, attr_list):
             setattr(self, attr, arg)
+
+    def to_dictionary(self):
+        """returns all attributes in dictionary format"""
+        return ({'x': self.x, 'y': self.y, 'id': self.id,
+                'size': self.size})
