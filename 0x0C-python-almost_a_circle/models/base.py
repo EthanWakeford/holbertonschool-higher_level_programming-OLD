@@ -27,3 +27,9 @@ class Base:
         dicts = [cls.to_dictionary(obj) for obj in list_objs]
         with open(f'{cls.__name__}.json', 'w', encoding='utf-8') as f:
             f.write(cls.to_json_string(dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        if not json_string:
+            return ([])
+        return ([dic for dic in eval(json_string[1:-1])])
