@@ -75,7 +75,9 @@ class Rectangle(Base):
 
     def display(self):
         """displays the rectangle visually"""
-        print('{}\n'.format('#' * self.__width) * self.__height, end='')
+        print('\n' * self.__y, sep='', end='')
+        disp = '{}{}\n'.format(' ' * self.__x, '#' * self.__width)
+        print(disp * self.__height, end='')
 
     def __str__(self):
         return (f'[Rectangle] ({self.id}) '
