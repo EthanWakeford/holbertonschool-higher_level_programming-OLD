@@ -93,3 +93,6 @@ class Rectangle(Base):
                 setattr(self, key, value)
         for arg, attr in zip(args, attr_list):
             setattr(self, attr, arg)
+
+    def to_dictionary(self):
+        return (vars(self))
