@@ -32,7 +32,10 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        pass
+        if not json_string:
+            return ([])
+        import json
+        return (json.loads(json_string))
 
     @classmethod
     def create(cls, **dictionary):
