@@ -33,3 +33,12 @@ class Base:
         if not json_string:
             return ([])
         return ([dic for dic in eval(json_string[1:-1])])
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == 'Rectangle':
+            obj = cls(1, 1)
+        if cls.__name__ == 'Square':
+            obj = cls(1)
+        obj.update(**dictionary)
+        return obj
