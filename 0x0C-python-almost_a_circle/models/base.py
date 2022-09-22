@@ -30,9 +30,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        if not json_string:
-            return ([])
-        return ([dic for dic in eval(json_string[1:-1])])
+        pass
 
     @classmethod
     def create(cls, **dictionary):
@@ -42,4 +40,4 @@ class Base:
         if cls.__name__ == 'Square':
             obj = cls(1)
         obj.update(**dictionary)
-        return obj
+        return (obj)
