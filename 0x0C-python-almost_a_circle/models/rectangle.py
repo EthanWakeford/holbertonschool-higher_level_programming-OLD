@@ -84,9 +84,12 @@ class Rectangle(Base):
                 f'{self.__x}/{self.__y} - '
                 f'{self.__width}/{self.__height}')
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """updates all attributes for rectangle in order:
          id, width, height, x, y"""
         attr_list = ['id', 'width', 'height', 'x', 'y']
+        if not args:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
         for arg, attr in zip(args, attr_list):
             setattr(self, attr, arg)
