@@ -95,4 +95,5 @@ class Rectangle(Base):
             setattr(self, attr, arg)
 
     def to_dictionary(self):
+        """returns all attributes in dictionary format"""
         return (vars(self))
