@@ -36,6 +36,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """creates a new object"""
         if cls.__name__ == 'Rectangle':
             obj = cls(1, 1)
         if cls.__name__ == 'Square':
