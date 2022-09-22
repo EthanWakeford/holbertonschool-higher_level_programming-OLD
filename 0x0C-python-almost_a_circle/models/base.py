@@ -36,6 +36,7 @@ class Base:
             return ([])
         import json
         return (json.loads(json_string))
+        #return ([dic for dic in eval(json_string[1:-1])])
 
     @classmethod
     def create(cls, **dictionary):
@@ -46,3 +47,11 @@ class Base:
             obj = cls(1)
         obj.update(**dictionary)
         return (obj)
+
+    @classmethod
+    def load_from_file(cls):
+        """loads from json file and returns a list of instances"""
+        with open(f'{cls.__name__}.json', encoding='utf-8') as f:
+            obj_lst = cls.from_json_string(f.read())
+            return ([cls.create(**obj) for obj in obj_lst])
+
