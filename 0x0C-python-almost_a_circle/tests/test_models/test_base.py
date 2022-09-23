@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """test file for base.py"""
 from models.base import Base
+from models.rectangle import Rectangle
 #Base = __import__('base').Base
 import unittest
+unittest.TestLoader.sortTestMethodsUsing = None
+
 
 
 class TestBase(unittest.TestCase):
@@ -19,8 +22,8 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(Base.load_from_file.__doc__)
 
 
-    def test_init(self):
-        """tests init method"""
+    def a_test_init(self):
+        
         b1 = Base()
         b2 = Base()
         b3 = Base(12)
@@ -38,9 +41,8 @@ class TestBase(unittest.TestCase):
             '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]')
 
     def test_save_to_file(self):
-        from models.rectangle import Rectangle
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
+        r1 = Rectangle(10, 7, 2, 8, 3)
+        r2 = Rectangle(2, 4, 0, 0, 4)
         Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), \
@@ -54,6 +56,14 @@ class TestBase(unittest.TestCase):
             , [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string('[]'), [])
+
+    def test_create(self):
+        r1 = Rectangle(3, 5, 1, 4, 10)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(type(r2), Rectangle)
+        self.assertIsNot(r1, r2)
+        self.assertEqual(r1.__str__(), r2.__str__())
 
 if __name__ == "__main__":
     unittest.main()
