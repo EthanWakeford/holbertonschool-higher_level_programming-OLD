@@ -57,13 +57,19 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string('[]'), [])
 
-    def test_create(self):
+    def b_test_create(self):
         r1 = Rectangle(3, 5, 1, 4, 10)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
         self.assertEqual(type(r2), Rectangle)
         self.assertIsNot(r1, r2)
         self.assertEqual(r1.__str__(), r2.__str__())
+
+    def test_load_from_file(self):
+        r1 = Rectangle(3, 5, 1, 4, 10)
+        Rectangle.save_to_file([r1])
+        lst = Rectangle.load_from_file()
+        self.assertIsInstance(lst[0], Rectangle)
 
 if __name__ == "__main__":
     unittest.main()
