@@ -32,6 +32,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """returns python dictionary of json string"""
         if not json_string:
             return ([])
         import json
