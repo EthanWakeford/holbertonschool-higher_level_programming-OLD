@@ -70,6 +70,7 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([r1])
         lst = Rectangle.load_from_file()
         self.assertIsInstance(lst[0], Rectangle)
+        self.assertEqual(lst[0].__str__(), '[Rectangle] (10) 1/4 - 3/5')
 
 if __name__ == "__main__":
     unittest.main()
