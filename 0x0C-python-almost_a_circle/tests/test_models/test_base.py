@@ -33,9 +33,21 @@ class TestBase(unittest.TestCase):
     
     def test_to_json_string(self):
         self.assertEqual(Base.to_json_string(None), '[]')
+        self.assertEqual(Base.to_json_string([]), '[]')
         self.assertEqual(Base.to_json_string([{'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}]), \
             '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]')
 
+    def test_save_to_file(self):
+        from models.rectangle import Rectangle
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), \
+                '[{"x": 2, "y": 8, "id": 3, "height": 7, "width": 10}, {"x": 0, "y": 0, "id": 4, "height": 4, "width": 2}]')
+        Base.save_to_file(None)
+        with open("Base.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
 
 if __name__ == "__main__":
     unittest.main()
