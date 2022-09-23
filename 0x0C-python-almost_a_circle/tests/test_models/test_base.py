@@ -49,5 +49,11 @@ class TestBase(unittest.TestCase):
         with open("Base.json", "r") as file:
             self.assertEqual(file.read(), '[]')
 
+    def test_from_json_string(self):
+        self.assertEqual(Base.from_json_string('[{"height": 4, "width": 10, "id": 89}, {"height": 7, "width": 1, "id": 7}]')\
+            , [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
+        self.assertEqual(Base.from_json_string(None), [])
+        self.assertEqual(Base.from_json_string('[]'), [])
+
 if __name__ == "__main__":
     unittest.main()
