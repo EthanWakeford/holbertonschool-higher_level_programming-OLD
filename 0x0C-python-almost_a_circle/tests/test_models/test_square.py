@@ -33,6 +33,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r2.id, 2)
         r3 = Square(10, 0, 0, 12)
         self.assertEqual(r3.id, 12)
+        with self.assertRaises(TypeError):
+            Square(1, 1, 1, 1, 1)
 
     def test_errors(self):
         with self.assertRaises(TypeError):
@@ -77,6 +79,10 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.__str__(), '[Square] (89) 3/1 - 2')
         s1.update(x=1, size=2, y=3)
         self.assertEqual(s1.__str__(), '[Square] (89) 1/3 - 2')
+        with self.assertRaises(TypeError):
+            s1.update(size="string")
+        with self.assertRaises(ValueError):
+            s1.update(size=-5)
 
     def test_to_dictionary(self):
         s1 = Square(10, 2, 1, 9)

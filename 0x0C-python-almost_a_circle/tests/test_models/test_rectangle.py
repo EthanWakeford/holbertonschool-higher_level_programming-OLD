@@ -33,6 +33,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.id, 2)
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
+        with self.assertRaises(TypeError):
+            Rectangle(1, 1, 1, 1, 1, 1)
 
     def test_errors(self):
         with self.assertRaises(TypeError):
@@ -81,6 +83,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.__str__(), '[Rectangle] (89) 3/1 - 2/10')
         r1.update(x=1, height=2, y=3, width=4)
         self.assertEqual(r1.__str__(), '[Rectangle] (89) 1/3 - 4/2')
+        with self.assertRaises(TypeError):
+            r1.update(width="string")
+        with self.assertRaises(ValueError):
+            r1.update(width=-5)
 
     def test_to_dictionary(self):
         r1 = Rectangle(10, 2, 1, 9)
