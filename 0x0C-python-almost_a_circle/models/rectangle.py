@@ -80,6 +80,7 @@ class Rectangle(Base):
         print(disp * self.__height, end='')
 
     def __str__(self):
+        """str doc"""
         return (f'[Rectangle] ({self.id}) '
                 f'{self.__x}/{self.__y} - '
                 f'{self.__width}/{self.__height}')
