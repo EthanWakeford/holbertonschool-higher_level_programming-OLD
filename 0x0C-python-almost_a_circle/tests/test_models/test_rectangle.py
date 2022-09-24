@@ -3,7 +3,8 @@
 from models.rectangle import Rectangle
 import unittest
 unittest.TestLoader.sortTestMethodsUsing = None
-
+from io import StringIO
+from unittest.mock import patch
 
 class TestRectangle(unittest.TestCase):
     """rectangle class testing"""
@@ -52,4 +53,19 @@ class TestRectangle(unittest.TestCase):
             r1 = Rectangle(1, 2, -2, 45)
         with self.assertRaises(ValueError):
             r1 = Rectangle(1, 2, 4, -6)
-        
+
+    def test_area(self):
+        r1 = Rectangle(3, 3)
+        self.assertEqual(r1.area(), 9)
+        r1 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r1.area(), 56)
+
+    def test_display(self):
+        r1 = Rectangle(2, 2)
+        with patch('sys.stdout', new = StringIO()) as fake_out:
+            r1.display()
+            self.assertEqual(fake_out.getvalue(), "##\n##\n")
+        r1 = Rectangle(3, 2, 1, 1)
+        with patch('sys.stdout', new = StringIO()) as fake_out:
+            r1.display()
+            self.assertEqual(fake_out.getvalue(), "\n ###\n ###\n")
