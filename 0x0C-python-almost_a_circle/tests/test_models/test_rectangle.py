@@ -69,3 +69,15 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new = StringIO()) as fake_out:
             r1.display()
             self.assertEqual(fake_out.getvalue(), "\n ###\n ###\n")
+
+    def test_update(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 10/10 - 2/3')
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 4/5 - 2/3')
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 3/1 - 2/10')
+        r1.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(r1.__str__(), '[Rectangle] (89) 1/3 - 4/2')
