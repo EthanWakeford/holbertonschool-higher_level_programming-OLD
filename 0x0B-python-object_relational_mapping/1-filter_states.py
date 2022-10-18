@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""uses mysqldb to print all states from database where name starts with capital N"""
+"""uses mysqldb to print all states from database where name
+ starts with capital N"""
 import MySQLdb
 import sys
 
@@ -14,7 +15,8 @@ def main(argv):
     cur.execute("SELECT * FROM states")
     rows = cur.fetchall()
     for row in rows:
-        if row[1][1] == 'N':
+        # check if first letter of name starts with 'N'
+        if row[1][0] == 'N':
             print(row)
     cur.close()
     db.close()
