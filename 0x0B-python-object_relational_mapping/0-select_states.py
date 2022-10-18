@@ -8,7 +8,8 @@ def main(argv):
     """main function to guard content"""
     if len(argv) != 4:
         return ()
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3])
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3])
     cur = db.cursor()
     states = cur.execute("SELECT * FROM states")
     print(states)
