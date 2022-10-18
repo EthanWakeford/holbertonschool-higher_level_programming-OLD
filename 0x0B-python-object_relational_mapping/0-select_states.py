@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import MySQLdb
-import sys.argv as argv
+import sys
 
 
 def main(argv):
@@ -10,4 +10,4 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    main(argv)
+    main(sys.argv)
