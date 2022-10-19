@@ -1,19 +1,17 @@
 #!/usr/bin/python3
-"""uses mysqldb to print all states from database where
- name matches the argument, but safely"""
+"""print all states from database where name matches the argument safely."""
 import MySQLdb
 import sys
 
 
 def main(argv):
-    """main function to guard content"""
+    """Guards content."""
     if len(argv) != 5:
         return ()
     db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
                          passwd=argv[2], db=argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE BINARY name={}"
-                .format(argv[4]))
+    cur.execute("SELECT * FROM states WHERE name=%(name)s", {'name': argv[4]})
     rows = cur.fetchall()
     for row in rows:
         print(row)
