@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     with Session(engine) as session:
         result = session.query(State.id, State.name).first()
-        if result == None:
+        if result is None:
             print("Nothing")
         else:
             (id, name) = eval(result.__str__())
