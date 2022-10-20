@@ -12,7 +12,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        query = session.query(State).where(State.name.contains("a")).all()
+        query = session.query(State).where(State.name.contains("a"))
         for row in query:
             session.delete(row)
         session.commit()
