@@ -12,5 +12,6 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        result = update(State).where(State.id == 2).values(name="New Mexico")
-        session.execute(result)
+        result = session.query(State).where(State.id == 2).one()
+        result.name = "New Mexico"
+        session.commit()
