@@ -15,5 +15,4 @@ if __name__ == "__main__":
         if result is None:
             print("Nothing")
         else:
-            (id, name) = eval(result.__str__())
-            print(f"{id}: {name}")
+            print(f"{result.id}: {result.name}")
