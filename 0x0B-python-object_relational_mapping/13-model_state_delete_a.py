@@ -15,4 +15,4 @@ if __name__ == "__main__":
         query = session.query(State).where(State.name.contains("a")).all()
         for row in query:
             session.delete(row)
-            session.commit()
+        session.commit()
