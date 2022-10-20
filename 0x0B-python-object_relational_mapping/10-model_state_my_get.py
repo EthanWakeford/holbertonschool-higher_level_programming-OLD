@@ -11,8 +11,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        result = session.query(State.id).where(State.name == sys.argv[4])
-        if result.count() == 0:
+        result = session.query(State.id).where(State.name == sys.argv[4]).all()
+        if len(result) == 0:
             print("Not found")
         else:
-            print(result.one().id)
+            for row in result:
+                print(row.id)
