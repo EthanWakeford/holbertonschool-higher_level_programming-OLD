@@ -11,4 +11,4 @@ if __name__ == "__main__":
 \t- type: {}
 \t- content: {}
 \t- utf8 content: {}""".format(type(page), page,
-                                 page.decode('utf8')))
+                               page.decode('utf8')))
