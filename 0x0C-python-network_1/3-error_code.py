@@ -13,5 +13,5 @@ if __name__ == "__main__":
     try:
         with request.urlopen(req) as repsonse:
             print(repsonse.read().decode('utf-8'))
-    except error.URLError as e:
-        print(e.reason)
+    except error.HTTPError as e:
+        print("Error code: {}".format(e.code))
