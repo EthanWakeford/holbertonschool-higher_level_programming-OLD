@@ -3,12 +3,15 @@
 
 
 if __name__ == "__main__":
+    from urllib import request, error
     import urllib.request
     from sys import argv
 
     url = argv[1]
 
-    req = urllib.request.Request(url)
-    try: urllib.request.urlopen(req)
-    except urllib.error.URLError as e:
-        print(e.reason)      
+    req = request.Request(url)
+    try:
+        with request.urlopen(req) as repsonse:
+            print(repsonse.read().decode('utf-8'))
+    except error.URLError as e:
+        print(e.reason)
