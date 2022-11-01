@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""reads from a webpage."""
+'''reads from a webpage.'''
 
 
 if __name__ == "__main__":
