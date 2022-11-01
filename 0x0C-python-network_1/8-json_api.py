@@ -14,12 +14,11 @@ def main(argv):
     r = requests.post('http://0.0.0.0:5000/search_user', data=data)
     try:
         j = r.json()
-        print("[{}] {}".format(j.get('id'), j.get('name')))
-    except requests.exceptions.JSONDecodeError as error:
-        print(error)
-        if error == '204':
+        if j.get('id') is None:
             print("No result")
         else:
+            print("[{}] {}".format(j.get('id'), j.get('name')))
+    except requests.exceptions.JSONDecodeError as error:
             print("Not a valid JSON")
 
 if __name__ == "__main__":
