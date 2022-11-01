@@ -8,7 +8,7 @@ if __name__ == "__main__":
     with urllib.request.urlopen(req) as response:
         page = response.read()
         print("""Body response:
-    - type: {}
-    - content: {}
-    - utf8 content: {}""".format(type(page), page,
+\t- type: {}
+\t- content: {}
+\t- utf8 content: {}""".format(type(page), page,
                                  page.decode('utf8')))
