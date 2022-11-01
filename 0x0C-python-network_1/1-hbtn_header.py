@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+'''returns x-request-id'''
 
 
 if __name__ == "__main__":
