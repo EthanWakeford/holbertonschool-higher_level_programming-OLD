@@ -6,7 +6,7 @@ def main(argv):
     import requests
 
     data = {}
-    if len(argv > 1):
+    if len(argv) > 1:
         data['q'] = argv[1]
     else:
         data['q'] = ""
