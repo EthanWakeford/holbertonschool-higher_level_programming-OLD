@@ -13,7 +13,7 @@ if __name__ == "__main__":
     payload['page'] = 1
 
     r = requests.get('https://api.github.com/repos/{}/{}/commits'
-                     .format(repo, owner), params=payload)
+                     .format(owner, repo), params=payload)
 
     commit_list = []
 
