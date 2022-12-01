@@ -2,9 +2,9 @@
 if (!process.argv[3]) {
   console.log(0);
 } else {
-  let arr = process.argv.slice(2);
+  const arr = process.argv.slice(2);
   for (const x in arr) {
     arr[x] = parseInt(arr[x]);
   }
-  console.log(arr.sort((a,b)=>a-b).reverse()[1])
+  console.log(arr.sort((a, b) => a - b).reverse()[1]);
 }
