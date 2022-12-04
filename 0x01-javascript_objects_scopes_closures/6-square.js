@@ -12,7 +12,9 @@ class Square extends Rectangle {
         console.log(c.repeat(this.width));
       }
     } else {
-      this.print();
+      for (let x = 0; x < parseInt(this.width); x++) {
+        console.log('X'.repeat(this.width));
+      }
     }
   }
 }
